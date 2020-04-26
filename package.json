@@ -1,0 +1,25 @@
+{
+  "name": "uts_pemrog_web",
+  "version": "1.0.0",
+  "description": "uts pemrog web",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ricky19-svg/uts_pemrog_web.git"
+  },
+  "keywords": [
+    "uts",
+    "pemrog",
+    "web",
+    "nodejs"
+  ],
+  "author": "ricky",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ricky19-svg/uts_pemrog_web/issues"
+  },
+  "homepage": "https://github.com/Ricky19-svg/uts_pemrog_web#readme"
+}
