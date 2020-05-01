@@ -29,4 +29,8 @@ module.exports = function(app) {
 
     app.route('/hapussparepart')
     .delete(jsonku.hapusSparepart);
+
+    app.route('/tambahmontir')
+    .post(jsonku.tambahmontir);
+    
 }
