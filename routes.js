@@ -35,4 +35,9 @@ module.exports = function(app) {
  
     app.route('/hapusmontir')
     .delete(jsonku.hapusMontir);
+
+    app.route('/tampilservice')
+    .get(jsonku.tampilservice);
+
+
 }
