@@ -160,3 +160,22 @@ exports.tampilservice = function(req,res){
         }
     });
 };
+
+//input data user
+exports.tambahuser = function (req, res) {
+    var nama_user = req.body.nama_user;
+    var email = req.body.email;
+    var password = req.body.password;
+    var level = req.body.level;
+
+    connection.query('INSERT INTO t_user (nama_user,email,password,level) VALUES (?,?,?,?)',
+    [nama_user,email,password,level],
+
+        function (error, rows, fields) {
+            if (error) {
+                console.log(error);
+            } else {
+                response.ok("Input User Sukses", res);
+            }
+        });
+};
