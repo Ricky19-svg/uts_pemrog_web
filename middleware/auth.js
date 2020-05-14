@@ -94,3 +94,11 @@ exports.login = function (req, res) {
         }
     });
 }
+
+
+exports.halamanrahasia = function(req,res){
+    response.ok("Access Denied! Halaman ini hanya untuk user  dengan role 2",res);
+}
+exports.halamanrahasia1 = function(req,res){
+    response.ok("Maaf,Halaman ini hanya untuk user  dengan role 1 ",res);
+}
