@@ -46,22 +46,22 @@ exports.registrasi = function(req,res){
     })
 }
 //controller untuk login
-exports.login = function(req,res){
+exports.login = function (req, res) {
     var post = {
-    password: req.body.password,
-    email: req.body.email
+        password: req.body.password,
+        email: req.body.email
     }
 
     var query = "SELECT * FROM ?? WHERE ??=? AND ??=?";
     var table = ["t_user", "password", md5(post.password), "email", post.email];
 
-    query = mysql.format(query,table);
-    connection.query(query, function(error, rows){
-        if(error){
+    query = mysql.format(query, table);
+    connection.query(query, function (error, rows) {
+        if (error) {
             console.log(error);
-        }else {
-            if(rows.length == 1){
-                var token = jwt.sign({rows}, config.secret, {
+        } else {
+            if (rows.length == 1) {
+                var token = jwt.sign({ rows }, config.secret, {
                     expiresIn: 1440
                 });
                 id_user = rows[0].id_user;
@@ -73,23 +73,23 @@ exports.login = function(req,res){
                 }
 
                 var query = "INSERT INTO ?? SET ?";
-                var table = ["t_level"];
+                var table = ["access_token"];
 
                 query = mysql.format(query, table);
-                connection.query(query, data , function(error, rows){
-                    if(error){
+                connection.query(query, data, function (error, rows) {
+                    if (error) {
                         console.log(error);
-                    }else {
+                    } else {
                         res.json({
                             success: true,
                             message: "Token JWT Tergenerate!",
-                            token:token,
+                            token: token,
                             currUser: data.id_user
                         });
                     }
                 });
-            }else {
-                res.json({"Error": true, "Message":"Email atau password salah!"});
+            } else {
+                res.json({ "Error": true, "Message": "Email atau password salah!" });
             }
         }
     });
