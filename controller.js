@@ -231,3 +231,23 @@ exports.tambahservice = function (req, res) {
             }
         });
 };
+//Mengubah Data User
+exports.ubahuser = function (req, res) {
+    var id_user = req.body.id;
+    var username = req.body.username;
+    var email = req.body.email;
+    var password = req.body.password;
+    var role = req.body.role;
+    var tanggal_daftar = new Date();
+    
+
+    connection.query('UPDATE t_user SET username=?, email=?, password=?, role=?, tanggal_daftar=? WHERE id_user=?',
+        [username, email, password, role, tanggal_daftar, id_user], 
+        function (error, rows, fields) {
+            if (error) {
+                console.log(error);
+            } else {
+                response.ok("Berhasil Mengubah Data", res)
+            }
+        });
+};
