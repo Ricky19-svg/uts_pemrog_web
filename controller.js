@@ -191,3 +191,43 @@ exports.tampilservice = function (req, res) {
             }
         });
 };
+
+//menambahkan data level
+exports.tambahlevel = function (req, res) {
+    var id_level = req.body.id_level;
+    var nama_level = req.body.nama_level;
+    
+    
+
+    connection.query('INSERT INTO t_level (id_level, nama_level) VALUES(?,?)',
+        [id_level, nama_level], 
+        function (error, rows, fields) {
+            if (error) {
+                console.log(error);
+            } else {
+                response.ok("Berhasil Menambahkan Data", res)
+            }
+        });
+};
+
+//menambahkan data service
+exports.tambahservice = function (req, res) {
+    var tgl_service = new Date();
+    var id_user = req.body.id_user;
+    var id_montir = req.body.id_montir;
+    var jumlah_sparepart = req.body.jumlah_sparepart;
+    var id_sparepart = req.body.id_sparepart;
+    var jam_service = req.body.jam_service;
+    var total_service = req.body.total_service;
+    
+
+    connection.query('INSERT INTO t_service (tgl_service, id_user, id_montir, jumlah_sparepart, id_sparepart, jam_service, total_service) VALUES(?,?,?,?,?,?,?)',
+        [tgl_service, id_user, id_montir, jumlah_sparepart, id_sparepart, jam_service, total_service], 
+        function (error, rows, fields) {
+            if (error) {
+                console.log(error);
+            } else {
+                response.ok("Berhasil Menambahkan Data", res)
+            }
+        });
+};
