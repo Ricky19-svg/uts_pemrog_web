@@ -42,7 +42,7 @@ module.exports = function (app) {
   app.route('/tambahlevel')
     .post(jsonku.tambahlevel);
 
-  app.route('/tambahservice')
+    app.route('/tambahservice')
     .post(jsonku.tambahservice);
 
     app.route('/ubahuser')
