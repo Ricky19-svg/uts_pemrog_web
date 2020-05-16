@@ -269,3 +269,26 @@ exports.ubahlevel = function (req, res) {
             }
         });
 };
+
+//Mengubah Data Service
+exports.ubahservice = function (req, res) {
+    var id_service = req.body.id_service;
+    var tgl_service = new Date();
+    var id_user = req.body.id_user;
+    var id_montir = req.body.id_montir;
+    var jumlah_sparepart = req.body.jumlah_sparepart;
+    var id_sparepart = req.body.id_sparepart;
+    var jam_service = req.body.jam_service;
+    var total_service = req.body.total_service
+    
+
+    connection.query('UPDATE t_service SET tgl_service=?, id_user=?, id_montir=?, jumlah_sparepart=?, id_sparepart=?, jam_service=?, total_service=? WHERE id_service=?',
+        [tgl_service, id_user, id_montir, jumlah_sparepart, id_sparepart, jam_service, total_service, id_service], 
+        function (error, rows, fields) {
+            if (error) {
+                console.log(error);
+            } else {
+                response.ok("Berhasil Mengubah Data", res)
+            }
+        });
+};
