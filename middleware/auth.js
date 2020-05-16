@@ -102,3 +102,27 @@ exports.halamanrahasia = function(req,res){
 exports.halamanrahasia1 = function(req,res){
     response.ok("Maaf,Halaman ini hanya untuk user  dengan role 1 ",res);
 }
+
+//menambahkan data service
+exports.tambahdataservice = function (req, res) {
+    var post = {
+     tgl_service: new Date(),
+     id_user: req.body.id_user,
+     id_montir: req.body.id_montir,
+     jumlah_sparepart: req.body.jumlah_sparepart,	
+     id_sparepart: req.body.id_sparepart,
+     jam_service: req.body.jam_service
+     
+    }
+    var query = "INSERT INTO ?? SET ?";
+    var table = ["t_service"];
+ 
+    query = mysql.format(query, table);
+     connection.query(query, post, function (error, rows) {
+             if (error) {
+                 console.log(error);
+             } else {
+                 response.ok("Berhasil Menambahkan Data", res)
+             }
+         });
+ };
