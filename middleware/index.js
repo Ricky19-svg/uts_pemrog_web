@@ -8,8 +8,11 @@ var verifikasi = require('./verifikasi');
 router.post('/api/v1/register', auth.registrasi);
 router.post('/api/v1/login', auth.login);
 router.post('/api/v1/tambahservice', auth.tambahdataservice);
+router.get('/api/v1/totalservis',verifikasiadmin(), auth.totalservis);
 
 //alamat yang perlu otorisasi
 router.get('/api/v1/rahasia', verifikasi(), auth.halamanrahasia);
 router.get('/api/v1/rahasia1', verifikasi(), auth.halamanrahasia1);
+
+
 module.exports = router;
